@@ -1,1 +1,27 @@
-a
+class Solution {
+    public int maxWater(int arr[]) {
+        int n = arr.length;
+        
+        int maxWater = 0;
+        
+        int l = 0;
+        int r = n-1;
+        
+        while(l<r){
+            int width = r-l;
+            int height = Math.min(arr[l] , arr[r]);
+            
+            int area = width * height;
+            
+            maxWater = Math.max(maxWater , area);
+            
+            if(arr[l] < arr[r]){
+                l++;
+            }else{
+                r--;
+            }
+        }
+        return maxWater;
+        
+    }
+}
